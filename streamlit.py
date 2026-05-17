@@ -122,7 +122,7 @@ def load_perfect_dictionary():
         ("KÖY", "Küçük yerleşim yeri"),
         ("ŞEHİR", "Büyük yerleşim yeri"),
         ("ÜLKE", "Bir devletin egemenliği altındaki topraklar"),
-        ("Kıta", "Büyük kara kütlesi"),
+        ("KITA", "Büyük kara kütlesi"),
         ("OKYANUS", "Kıtaları ayıran devasa su kütlesi"),
         ("KUMSAL", "Deniz kenarındaki kum kaplı alan"),
         ("SAHİL", "Deniz veya göl kıyısı"),
@@ -164,7 +164,7 @@ def load_perfect_dictionary():
         ("ASKER", "Ordu bünyesinde ülkeyi koruyan görevli"),
         ("POLİS", "Kamu düzenini ve güvenliğini sağlayan görevli"),
         ("PİLOT", "Hava taşıtlarını kullanmakla görevli kişi"),
-        ("KAPTAN", "Gemi veya uçak yönetiminden somut en kıdemli kişi"),
+        ("KAPTAN", "Gemi veya uçak yönetiminden sorumlu en kıdemli kişi"),
         ("AŞÇI", "Yemek pişirmeyi meslek edinmiş usta"),
         ("TERZİ", "Kıyafet dikimi ve onarımı yapan zanaatçı"),
         ("ÇİFTÇİ", "Tarım ve hayvancılıkla uğraşan üretici"),
@@ -189,7 +189,7 @@ def load_perfect_dictionary():
         ("BASKETBOL", "Elle potaya top atılarak oynanan takım oyunu"),
         ("TENİS", "Raketle topa vurularak oynanan karşılıklı oyun"),
         ("ALTIN", "Değerli, parlak sarı renkli metal element"),
-        ("GÜMÜŞ", "Süs eşyası ve para yapımında kullanılan beyaz metal"),
+        ("GUMUS", "Süs eşyası ve para yapımında kullanılan beyaz metal"),
         ("BAKIR", "Elektrik iletiminde çok kullanılan kızıl metal"),
         ("DEMİR", "Sanayide en çok kullanılan dayanıklı metal"),
         ("ÇELİK", "Demir ve karbon karışımı çok güçlü malzeme"),
@@ -292,9 +292,9 @@ else:
     # --- ZAMANLAYICI MOTORU (Her 1 saniyede sayfayı tetikler) ---
     st_autorefresh(interval=1000, key="wordrush_timer")
 
-    # Geçen zaman hesaplama
+    # Geçen zaman hesaplama (Yeni Ayar: 10 Saniye)
     elapsed_time = int(time.time() - st.session_state.start_time)
-    remaining_time = max(0, 5 - elapsed_time)
+    remaining_time = max(0, 10 - elapsed_time)
 
     # Süre Doldu Kontrolü
     if remaining_time == 0:
@@ -364,10 +364,10 @@ with st.expander("ℹ️ Nasıl Oynanır?"):
     st.markdown("""
     * **Oyun Mantığı:** Yukarıda harfleri çorba edilmiş kelimeyi süre bitmeden bulman gerekiyor.
     * **⚠️ Altın Kural:** Tahminlerinizi mutlaka **BÜYÜK HARFLERLE** yazmalısınız!
-    * **⏱️ Zaman Sınırı:** Her kelime için tam **5 saniyen var!** 5 saniye içinde cevap vermezsen sistem bunu otomatik olarak yanlış sayar.
+    * **⏱️ Zaman Sınırı:** Her kelime için tam **10 saniyen var!** 10 saniye içinde cevap vermezsen sistem bunu otomatik olarak yanlış sayar.
     * **Skor Kuralları:**
         * Doğru bilirsen skorun **1 yükselir** ve sıradaki kelime gelir.
-        * Yanlış tahmin edersen veya **5 saniyelik süren biterse** skorun **2 azalır** ve sistem otomatik olarak diğer soruya fırlatır.
+        * Yanlış tahmin edersen veya **10 saniyelik süren biterse** skorun **2 azalır** ve sistem otomatik olarak diğer soruya fırlatır.
         * **Pas Geç** butonuna basarsan yine **2 puan kaybederek** yeni kelime alırsın.
     * **Oyun Sonu:** Toplam **30 kelime** hakkın bittikten sonra oyun sonlanır ve nihai skorun ekranda sergilenir!
     * **Geliştirici:** Bu oyun **Mustafa Emir Şimşek** tarafından tasarlanmış ve kodlanmıştır!
